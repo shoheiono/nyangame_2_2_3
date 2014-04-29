@@ -1,11 +1,3 @@
-//
-//  GameScene.cpp
-//  nyangame_2_2_3
-//
-//  Created by 小野昌平 on 2014/04/20.
-//
-//
-
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
 
@@ -26,6 +18,18 @@ bool GameScene::init(){
 		return false;
 	}
 	
+	// 背景表示
+	showBackground();
+	
 	return true;
+}
+
+void GameScene::showBackground(){
+	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+	
+	//
+	m_background = CCSprite::create(PNG_BACKGROUND);
+	m_background->setPosition(ccp(winSize.width / 2, winSize.height / 2));
+	addChild(m_background, kZOrderbakground, kTagBackground);
 }
 
